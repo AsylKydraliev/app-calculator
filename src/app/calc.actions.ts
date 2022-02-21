@@ -1,8 +1,5 @@
-import { createAction } from '@ngrx/store';
+import { createAction, props } from '@ngrx/store';
 
-export const addition = createAction('[Calculator] Addition');
-export const subtraction = createAction('[Calculator] Subtraction');
-export const multiplication = createAction('[Calculator] Multiplication');
-export const division = createAction('[Calculator] Division');
-export const result = createAction('[Calculator] Result');
-export const reset = createAction('[Calculator] Reset');
+export const addSymbol = createAction('[Calculator] AddSymbol', props<{symbol: string}>());
+export const result = createAction('[Calculator] Result', props<{symbol: string}>());
+export const reset = createAction('[Calculator] Reset', props<{symbol: string}>());

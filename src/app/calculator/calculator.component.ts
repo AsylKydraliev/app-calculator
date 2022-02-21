@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
-import { addition, division, multiplication, reset, result, subtraction } from '../calc.actions';
+import { addSymbol, reset, result } from '../calc.actions';
 import { Store } from '@ngrx/store';
 
 @Component({
@@ -8,35 +8,28 @@ import { Store } from '@ngrx/store';
   templateUrl: './calculator.component.html',
   styleUrls: ['./calculator.component.css']
 })
-export class CalculatorComponent {
-  result!: Observable<number>;
 
-  constructor(private store: Store<{calculator: number}>) {
+export class CalculatorComponent {
+  result!: Observable<{result: string }>;
+  symbol!: {};
+
+  constructor(private store: Store<{calculator: {result: string}}>) {
     this.result = store.select('calculator');
+    this.result.subscribe(symbol => {
+      this.symbol = symbol.result;
+    })
   };
 
-  addition(){
-    this.store.dispatch(addition());
+  addSymbol(symbol: string){
+    this.store.dispatch(addSymbol({symbol: symbol}));
   }
 
-  subtraction(){
-    this.store.dispatch(subtraction());
+  getResult(symbol: string){
+    this.store.dispatch(result({symbol: symbol}));
   }
 
-  multiplication(){
-    this.store.dispatch(multiplication());
-  }
-
-  division(){
-    this.store.dispatch(division());
-  }
-
-  getResult(){
-    this.store.dispatch(result());
-  }
-
-  reset(){
-    this.store.dispatch(reset());
+  reset(symbol: string){
+    this.store.dispatch(reset({symbol: symbol}));
   }
 }
 

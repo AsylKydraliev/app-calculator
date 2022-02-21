@@ -1,26 +1,20 @@
 import { createReducer, on } from '@ngrx/store';
-import { addition, division, multiplication, reset, result, subtraction } from './calc.actions';
+import { addSymbol, reset, result } from './calc.actions';
 
-const initialState = 0;
+
+const initialState = {
+  result: ''
+};
 
 export const calculatorReducer = createReducer(
   initialState,
-  on(addition, state => {
-    return state + 1;
+  on(addSymbol, (state, {symbol}) => {
+      return {...state, result: state.result + symbol}
   }),
-  on(subtraction, state => {
-    return state - 1;
-  }),
-  on(multiplication, state => {
-    return state * 2;
-  }),
-  on(division, state => {
-    return state / 2;
-  }),
-  on(result, state => {
-    return state;
+  on(result, (state, {symbol}) => {
+    return {...state, result: eval(state.result)};
   }),
   on(reset, state => {
-    return 0;
-  }),
+      return {...state, result: ''};
+  })
 );
