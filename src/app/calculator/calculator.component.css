@@ -6,14 +6,14 @@
   margin: 50px auto;
   color: #fff;
   padding: 10px;
-  font-family: "Arial", sans-serif;
+  font-family: 'Arial', sans-serif;
 }
 
 .calc_text{
   height: 150px;
   display: grid;
   padding: 10px;
-  font-size: 4rem;
+  font-size: 3.8rem;
   justify-items: end;
   align-items: end;
 }
@@ -38,7 +38,7 @@
   background: #333;
   text-align: center;
   line-height: 60px;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   cursor: pointer;
   user-select: none;
 }

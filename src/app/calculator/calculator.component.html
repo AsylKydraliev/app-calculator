@@ -1,31 +1,11 @@
 <div class="calc">
   <div class="calc_text">
-    <p>{{ symbol }}</p>
+    <p>{{ result | async }}</p>
   </div>
   <div class="buttons">
-    <div class="btn ac bg_grey" (click)="reset('AC')">AC</div>
-    <div class="btn plus_minus bg_grey">+/-</div>
-    <div class="btn percent bg_grey">%</div>
-    <div class="btn division bg_orange" (click)="addSymbol('/')">/</div>
-
-    <div class="btn seven" (click)="addSymbol('7')">7</div>
-    <div class="btn eight" (click)="addSymbol('8')">8</div>
-    <div class="btn nine" (click)="addSymbol('9')">9</div>
-    <div class="btn multiply bg_orange" (click)="addSymbol('*')">X</div>
-
-    <div class="btn four" (click)="addSymbol('4')">4</div>
-    <div class="btn five" (click)="addSymbol('5')">5</div>
-    <div class="btn six" (click)="addSymbol('6')">6</div>
-    <div class="btn minus bg_orange" (click)="addSymbol('-')">-</div>
-
-    <div class="btn one" (click)="addSymbol('1')">1</div>
-    <div class="btn two" (click)="addSymbol('2')">2</div>
-    <div class="btn three" (click)="addSymbol('3')">3</div>
-    <div class="btn plus bg_orange" (click)="addSymbol('+')">+</div>
-
-    <div class="btn zero" (click)="addSymbol('0')">0</div>
-    <div class="btn dot" (click)="addSymbol('.')">.</div>
-    <div class="btn equals bg_orange" (click)="getResult('=')">=</div>
+    <div class="btn ac bg_grey" (click)="reset()">AC</div>
+    <div *ngFor="let symbol of symbols" class="btn" (click)="addSymbol(symbol)">{{ symbol }}</div>
+    <div class="btn equals bg_orange" (click)="getResult()">=</div>
   </div>
 </div>
 

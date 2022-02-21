@@ -10,26 +10,24 @@ import { Store } from '@ngrx/store';
 })
 
 export class CalculatorComponent {
-  result!: Observable<{result: string }>;
-  symbol!: {};
+  result!: Observable<{result: string}>;
+
+  symbols = [ '+/-', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '0', '00', '.'];
 
   constructor(private store: Store<{calculator: {result: string}}>) {
     this.result = store.select('calculator');
-    this.result.subscribe(symbol => {
-      this.symbol = symbol.result;
-    })
   };
 
   addSymbol(symbol: string){
     this.store.dispatch(addSymbol({symbol: symbol}));
   }
 
-  getResult(symbol: string){
-    this.store.dispatch(result({symbol: symbol}));
+  getResult(){
+    this.store.dispatch(result());
   }
 
-  reset(symbol: string){
-    this.store.dispatch(reset({symbol: symbol}));
+  reset(){
+    this.store.dispatch(reset());
   }
 }
 
