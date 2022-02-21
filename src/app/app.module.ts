@@ -2,13 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { StoreModule } from '@ngrx/store';
+import { CalculatorComponent } from './calculator/calculator.component';
+import { FormsModule } from '@angular/forms';
+import { calculatorReducer } from './calc.reducer';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CalculatorComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    StoreModule.forRoot({calculator: calculatorReducer}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]

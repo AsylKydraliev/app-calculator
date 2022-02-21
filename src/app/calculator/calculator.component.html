@@ -1,0 +1,33 @@
+<div class="calc">
+  <div class="calc_text">
+    <p>{{ result | async }}</p>
+  </div>
+  <div class="buttons">
+    <div class="btn ac bg_grey" (click)="reset()">AC</div>
+    <div class="btn plus_minus bg_grey">+/-</div>
+    <div class="btn percent bg_grey">%</div>
+    <div class="btn division bg_orange" (click)="division()">/</div>
+
+    <div class="btn seven">7</div>
+    <div class="btn eight">8</div>
+    <div class="btn nine">9</div>
+    <div class="btn multiply bg_orange" (click)="multiplication()">X</div>
+
+    <div class="btn four">4</div>
+    <div class="btn five">5</div>
+    <div class="btn six">6</div>
+    <div class="btn minus bg_orange" (click)="subtraction()">-</div>
+
+    <div class="btn one">1</div>
+    <div class="btn two">2</div>
+    <div class="btn three">3</div>
+    <div class="btn plus bg_orange" (click)="addition()">+</div>
+
+    <div class="btn zero">0</div>
+    <div class="btn dot">.</div>
+    <div class="btn equals bg_orange" (click)="getResult()">=</div>
+  </div>
+</div>
+
+
+
