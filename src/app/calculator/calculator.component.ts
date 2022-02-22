@@ -10,11 +10,11 @@ import { Store } from '@ngrx/store';
 })
 
 export class CalculatorComponent {
-  result!: Observable<{result: string}>;
+  result!: Observable<string>;
 
   symbols = [ '+/-', '%', '/', '7', '8', '9', '*', '4', '5', '6', '-', '1', '2', '3', '+', '0', '00', '.'];
 
-  constructor(private store: Store<{calculator: {result: string}}>) {
+  constructor(private store: Store<{calculator: string}>) {
     this.result = store.select('calculator');
   };
 
