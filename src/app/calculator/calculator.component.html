@@ -4,7 +4,13 @@
   </div>
   <div class="buttons">
     <div class="btn ac bg_grey" (click)="reset()">AC</div>
-    <div *ngFor="let symbol of symbols" class="btn" (click)="addSymbol(symbol)">{{ symbol }}</div>
+    <div
+      *ngFor="let symbol of symbols"
+      [ngClass]="getClassName(symbol)"
+      (click)="addSymbol(symbol)"
+    >
+      {{ symbol }}
+    </div>
     <div class="btn equals bg_orange" (click)="getResult()">=</div>
   </div>
 </div>

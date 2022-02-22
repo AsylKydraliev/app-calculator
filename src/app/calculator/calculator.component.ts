@@ -29,6 +29,16 @@ export class CalculatorComponent {
   reset(){
     this.store.dispatch(reset());
   }
+
+  getClassName(item: string){
+    let className = 'btn';
+    if(item === '/' || item == '+' || item === '-' || item == '*'){
+      className = 'btn bg_orange';
+    }else if(item === '+/-' || item == '%'){
+      className = 'btn bg_grey';
+    }
+    return className;
+  }
 }
 
 
